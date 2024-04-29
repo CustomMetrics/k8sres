@@ -1,0 +1,151 @@
+metrics:
+- name: ntaprep_total_transfer_bytes
+  help: Total number of protocol write ops
+  type: counter
+  properties:
+    type: kubernetes
+    object: NetAppVolumeReplication
+    value: $.status.totalTransferBytes
+    unit: bytes
+    labels:
+      sourceUUID: $.spec.sourceVolume.volumeUUID
+      destinationUUID: $.spec.destinationVolume.volumeUUID
+- name: quark_health_status_etcd
+  help: Etcd health Status
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Quark
+    value: $.status.health.etcdCluster
+    labels:
+      name: $.metadata.name
+      component: etcd
+      cluster: $.spec.project.clusterName
+      namespace: $.metadata.namespace
+- name: quark_health_status_nvc
+  help: NetApp Volume Controller health Status
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Quark
+    value: $.status.health.nvc
+    labels:
+      name: $.metadata.name
+      component: nvc
+      cluster: $.spec.project.clusterName
+      namespace: $.metadata.namespace
+- name: quark_health_status_operator
+  help: Quark Operator health Status
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Quark
+    value: $.status.health.operator
+    labels:
+      name: $.metadata.name
+      component: operator
+      cluster: $.spec.project.clusterName
+      namespace: $.metadata.namespace
+- name: quark_health_status_nodevol
+  help: Node Vol health Status
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Quark
+    value: $.status.health.nodevol
+    labels:
+      name: $.metadata.name
+      component: nodevol
+      cluster: $.spec.project.clusterName
+      namespace: $.metadata.namespace
+- name: quark_health_status_nodemonitor
+  help: Node Monitor health Status
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Quark
+    value: $.status.health.nodeMonitor
+    labels:
+      name: $.metadata.name
+      component: nodeMonitor
+      cluster: $.spec.project.clusterName
+      namespace: $.metadata.namespace
+- name: quark_health_status_nsc
+  help: Netapp Snapshot controller health Status
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Quark
+    value: $.status.health.nsc
+    labels:
+      name: $.metadata.name
+      component: nsc
+      cluster: $.spec.project.clusterName
+- name: quark_health_status_svcmesh
+  help: ServiceMesh health Status
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Quark
+    value: $.status.health.svcmeshctrl
+    labels:
+      name: $.metadata.name
+      component: servicemesh
+      cluster: $.spec.project.clusterName
+      namespace: $.metadata.namespace
+- name: quark_health_status_nhc
+  help: Netapp HA Controller health Status
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Quark
+    value: $.status.health.nhc
+    labels:
+      name: $.metadata.name
+      component: nhc
+      cluster: $.spec.project.clusterName
+      namespace: $.metadata.namespace
+- name: quark_health_cluster_version
+  help: Current state of Quark Operator with quark version in label
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Quark
+    value: $.status.health.operator
+    labels:
+      name: $.metadata.name
+      version: $.status.version
+      cluster: $.spec.project.clusterName
+      namespace: $.metadata.namespace
+- name: podrick_ntapsp_version
+  help: Current state and version of Storage Pools.
+  type: gauge
+  properties:
+    type: kubernetes
+    object: NetAppStoragePool
+    value: $.status.conditions[?(@.type=='Online')].status
+    labels:
+      name: $.metadata.name
+      namespace: $.metadata.namespace
+      version: $.status.quarkVersion
+# - name: ntap_quarketcd_size
+#   help: Etcd cluster size. This is for testing purposes.
+#   type: gauge
+#   properties:
+#     type: kubernetes
+#     object: Quark
+#     value: $.spec.controllerConfig.etcdClusterSize
+#     labels:
+#       cloud: $.spec.cloud
+#       name: $.metadata.name
+#       foo: bar
+# - name: ntap_pod_foo
+#   help: This is an example of fetching metric from list.
+#   type: gauge
+#   properties:
+#     type: kubernetes
+#     object: Pod
+#     value: $.status.conditions[?(@.type=='Ready')].status
+#     labels:
+#       name: $.metadata.name
+#       foo: bar
