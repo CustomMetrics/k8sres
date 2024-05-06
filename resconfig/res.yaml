@@ -1,0 +1,21 @@
+metrics:
+- name: etcd_status
+  help: THis is an example of fetching state of Etcd Cluster.
+  type: gauge
+  properties:
+    type: kubernetes
+    object: etcd
+    value: $.status.size
+    labels:
+      name: $.metadata.name
+      phase: $.status.phase
+- name: pod_foo
+  help: This is an example of fetching metric from list.
+  type: gauge
+  properties:
+    type: kubernetes
+    object: Pod
+    value: $.status.conditions[?(@.type=='Ready')].status
+    labels:
+      name: $.metadata.name
+      foo: bar
