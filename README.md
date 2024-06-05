@@ -1,5 +1,10 @@
+
+
 # k8sres
 Create custom metrics from Kubernetes Resources.
+
+![image](https://github.com/CustomMetrics/k8sres/assets/159939175/b9282376-5b9a-4bd2-b57e-0429844f3c15)
+
 # Kubernetes Resource Metrics Server
 
 This project implements a simple HTTP server that exposes Kubernetes resource metrics via a Prometheus-compatible endpoint. It utilizes Prometheus client libraries along with custom Kubernetes metric collection to facilitate monitoring in Kubernetes environments.
@@ -56,5 +61,4 @@ To deploy this service in a Kubernetes cluster, you can use the provided Dockerf
 
 Contributions are welcome. Please open an issue to discuss proposed changes or open a pull request with your updates.
 
-![image](https://github.com/CustomMetrics/k8sres/assets/159939175/b9282376-5b9a-4bd2-b57e-0429844f3c15)
 
