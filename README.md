@@ -56,3 +56,5 @@ To deploy this service in a Kubernetes cluster, you can use the provided Dockerf
 
 Contributions are welcome. Please open an issue to discuss proposed changes or open a pull request with your updates.
 
+![image](https://github.com/CustomMetrics/k8sres/assets/159939175/b9282376-5b9a-4bd2-b57e-0429844f3c15)
+
