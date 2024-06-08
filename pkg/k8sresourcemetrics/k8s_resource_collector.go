@@ -107,7 +107,7 @@ func (k *kMetrics) Update() error {
 			u := unstructured.UnstructuredList{}
 			u.SetGroupVersionKind(v)
 
-			err = cl.List(context.Background(), &u, &client.ListOptions{Namespace: "", FieldSelector: val.FieldSelector, LabelSelector: val.LabelSelector})
+			err = cl.List(context.Background(), &u, &client.ListOptions{Namespace: val.Namespace, FieldSelector: val.FieldSelector, LabelSelector: val.LabelSelector})
 			if err != nil {
 				log.Error(err.Error())
 				continue
