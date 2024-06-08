@@ -19,3 +19,15 @@ metrics:
     labels:
       name: $.metadata.name
       foo: bar
+- name: config_data_metric
+  help: get the object and its status as metric
+  type: gauge
+  properties:
+    type: kubernetes
+    object: ConfigMap
+    #fieldSelector: metadata.name=your-cm
+    #labelSelector: test=cm
+    value: val($.data)
+    labels:
+      zone: key($.data)
+      name: $.metadata.name 

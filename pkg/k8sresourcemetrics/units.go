@@ -79,9 +79,9 @@ func CoerceToFloat64(val interface{}) (float64, error) {
 	case string:
 		valStr := strings.ToLower(t)
 
-		if valStr == "true" || valStr == "ready" {
+		if valStr == "true" || valStr == "ready" || valStr == "active" {
 			valStr = "1.0"
-		} else if valStr == "false" || valStr == "notready" {
+		} else if valStr == "false" || valStr == "notready" || valStr == "inactive" {
 			valStr = "0.0"
 		}
 		return strconv.ParseFloat(valStr, 64)
