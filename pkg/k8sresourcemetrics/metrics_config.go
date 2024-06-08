@@ -31,11 +31,14 @@ type MetricsConfig struct {
 	Help       string `yaml:"help"`
 	MetricType string `yaml:"type"`
 	Properties struct {
-		PropertyType string            `yaml:"type"`
-		Object       string            `yaml:"object"`
-		Value        string            `yaml:"value"`
-		Unit         string            `yaml:"unit"`
-		Labels       map[string]string `yaml:"labels"`
+		PropertyType  string            `yaml:"type"`
+		Object        string            `yaml:"object"`
+		FieldSelector string            `yaml:"fieldSelector"`
+		LabelSelector string            `yaml:"labelSelector"`
+		Namespace     string            `yaml:"namespace"`
+		Value         string            `yaml:"value"`
+		Unit          string            `yaml:"unit"`
+		Labels        map[string]string `yaml:"labels"`
 	} `yaml:"properties"`
 }
 
